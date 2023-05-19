@@ -5,7 +5,7 @@ const { Kafka } = require('kafkajs')
 const kafka = new Kafka({
   clientId: 'my-app',
   brokers: [
-	  'my-kafka-0.my-kafka-headless.kafka-adsoftsito.svc.cluster.local:9092'
+	  'my-kafkaf-0.my-kafkaf-headless.jairh3110.svc.cluster.local:9092'
 	  ]
 });
 
