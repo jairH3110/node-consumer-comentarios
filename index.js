@@ -21,7 +21,7 @@ app.get('/', (req, res, next) => {
   res.send('kafka api - adsoft');
 });
 
-const run = async (reaccionid) => {
+const run = async (reaccionid,usuarioid) => {
 
     await producer.connect()
 //    await producer.send()
