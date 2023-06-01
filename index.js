@@ -29,7 +29,7 @@ const run = async (reaccionid) => {
       topic: 'test',
       messages: [ 
 	{ 
-	  'value': `{"reaccionid": "${reaccionid}" }` 
+	  'value': `{"reaccionid": "${reaccionid}" ,"usuarioid": "${usuarioid}"  }` 
   	} 
       ],
     })
@@ -37,9 +37,12 @@ const run = async (reaccionid) => {
 }
 
 app.get('/like', (req, res, next) => {
+  
+  const usuarioid = req.query.usuarioid;
+
   const reaccionid = req.query.reaccionid;
-  res.send({ 'reaccionid' : reaccionid } );
-  run(reaccionid).catch(e => console.error(`[example/producer] ${e.message}`, e))
+  res.send({ 'reaccionid' : reaccionid,'usuarioid':usuarioid } );
+  run(reaccionid,usuarioid).catch(e => console.error(`[example/producer] ${e.message}`, e))
 
 });
 
