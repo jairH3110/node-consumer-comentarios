@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.options('*', cors());
 
-const port = 8080;
+const port = 8050;
 
 app.get('/', (req, res, next) => {
   res.send('kafka api - adsoft');
