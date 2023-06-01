@@ -21,7 +21,7 @@ app.get('/', (req, res, next) => {
   res.send('kafka api - adsoft');
 });
 
-const run = async (username) => {
+const run = async (reaccionid,usuarioid) => {
 
     await producer.connect()
 //    await producer.send()
@@ -29,17 +29,20 @@ const run = async (username) => {
       topic: 'test',
       messages: [ 
 	{ 
-	  'value': `{"name": "${username}" }` 
+	  'value': `{"reaccionid": "${reaccionid}" } , {"usuarioid": "${usuarioid}" } ` 
   	} 
       ],
     })
    await producer.disconnect()
 }
 
-app.get('/like', (req, res, next) => {
-  const username = req.query.name;
-  res.send({ 'name' : username } );
-  run(username).catch(e => console.error(`[example/producer] ${e.message}`, e))
+app.get('/like', (req,req2 ,res, next) => {
+  const reaccionid = req.query.reaccionid;
+  const usuarioid= req2.query.usuarioid
+
+  res.send({ 'reaccionid' : reaccionid } );
+  res.send({ 'usuarioid' : usuarioid } );
+  run(reaccionid,usuarioid).catch(e => console.error(`[example/producer] ${e.message}`, e))
 
 });
 
