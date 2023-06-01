@@ -29,7 +29,7 @@ const run = async (reaccionid,usuarioid) => {
       topic: 'test',
       messages: [ 
 	{ 
-	  'value': `{"reaccionid": "${reaccionid}" } , {"usuarioid": "${usuarioid}" } ` 
+	  'value': `{"reaccionid": "${reaccionid}", "usuarioid": "${usuarioid}" } ` 
   	} 
       ],
     })
